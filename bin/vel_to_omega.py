@@ -24,9 +24,9 @@ cmdata=np.loadtxt("cm.txt")
 
 for cmIdx, (xfile,yfile) in enumerate(zip(vxfiles,vyfiles)):
 
-	if(int(xfile[3:-4])<241664):
-		#Only do late times
-		continue
+	#if(int(xfile[3:-4])<241664):
+	#	#Only do late times
+	#	continue
 
 	vx_data = np.loadtxt("vel_data/"+xfile)
 	vy_data = np.loadtxt("vel_data/"+yfile)
@@ -41,9 +41,9 @@ for cmIdx, (xfile,yfile) in enumerate(zip(vxfiles,vyfiles)):
 	savename="w_data/w_"+time.zfill(6)+".txt"
 
 	#Already done this time
-	#if(exists(savename)):
-	#	print("Skipping iteration "+xfile[3:-4]+", already done")
-	#	continue
+	if(exists(savename)):
+		print("Skipping iteration "+xfile[3:-4]+", already done")
+		continue
 
 	x = vx_data[:,9]-cmdata[cmIdx,0]
 	y = vy_data[:,10]-cmdata[cmIdx,1]
