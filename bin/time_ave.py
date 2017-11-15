@@ -2,6 +2,7 @@ from os import listdir
 from sys import argv
 from math import pi
 
+dt=float(argv[1])
 timeToAverage=float(argv[2])
 
 def calc_N(w_0):
@@ -12,7 +13,6 @@ def calc_N(w_0):
 	line=fil.readline()
 	w=abs(float(line.strip().split()[1]))
 	#print("w=",w)
-	dt=float(argv[1])
 	itStep=int(times[1]-times[0])
 	#print("itStep=",itStep)
 	period_t=2.0*pi/w

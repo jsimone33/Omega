@@ -9,4 +9,9 @@ This will
 	3) Time averages 
 	4) Produces images for each averaged time
 
-For different data sets you will have to adjust the plot settings to fit your data
+Things to edit:
+	Params in run.sh
+	In vel_to_w.py, can change pass statements to resume calculation on second
+		half of data
+	In plot.py, need to adjust window settings
+

@@ -3,16 +3,16 @@ vxfile=../vx.xy.asc
 vyfile=../vy.xy.asc
 delta_r=.05 #will collect omega data for multiples of this r value, should be around spacing of grid
 M=0.1678 #ADM Mass of system
-dt=1 #difference in time between files
-timeToAverage=1.0 #How long to average over in periods
+dt=1 #difference in time between files (Not over 1 iteration)
+timeToAverage=0.5 #Time to average over in periods
 cmdata=../bhns.xon
 ####################### END PARAMS #######################
 
-##Split Ascii files##
+
+#### Split Ascii files ####
 
 if [ -e vel_data ]
 then
-	#Skip if already done
 	echo "Ascii file already split"
 else
 	mkdir vel_data
@@ -26,7 +26,8 @@ else
 	echo "...done"
 fi
 echo
-##Read CoM file##
+
+#### Read CoM file ####
 
 if [ -f $cmdata ]
 then
@@ -37,7 +38,8 @@ else
 	echo "Assuming CoM=(0,0)"
 fi
 echo
-##Convert to Omega##
+
+#### Convert to Omega ####
 
 if [ -e w_data ]
 then
@@ -51,7 +53,8 @@ else
 	date
 fi
 echo
-##Time average over nearby files##
+
+#### Time average over nearby files ####
 
 if [ -e t_ave ]
 	then
@@ -63,7 +66,8 @@ echo "Time averaging..."
 python bin/time_ave.py $dt $timeToAverage
 echo "...done"
 echo
-##Make Images##
+
+#### Make Images ####
 
 if [ -e png_ave ]
 	then
@@ -74,3 +78,4 @@ mkdir png_ave
 echo "Making images..."
 python bin/plot.py $M $dt
 echo "...done"
+
