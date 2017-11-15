@@ -1,0 +1,12 @@
+Use ./run.sh to run everything
+Some parameters will need adjusting
+
+cm.txt should have x, y, vx, vy
+
+This will
+	1) Convert Ascii files to one velocity file per time
+	2) Use velocity files to make one omega file per time
+	3) Time averages 
+	4) Produces images for each averaged time
+
+For different data sets you will have to adjust the plot settings to fit your data
